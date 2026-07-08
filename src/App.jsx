@@ -1,22 +1,20 @@
-import "./styles/App.css";
+import './App.css'
 
 function App() {
-  const todos = [
-    "Set up my weekly React project",
-    "Commit and push to GitHub",
-    "Render my first React UI"
-  ];
+  const todoList = [
+    {id: 1, title: "review resources"},
+    {id: 2, title: "take notes"},
+    {id: 3, title: "code out app"},
+]
 
   return (
-    <div className="cute-wrapper">
-      <h1 className="cute-title">My Weekly React Project</h1>
-      <ul className="cute-list">
-        {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
-        ))}
-      </ul>
+    <div>
+      <h1>My Todos</h1>
+       <ul>
+            {todoList.map(todo => <li key={todo.id}>{todo.title}</li>)}
+        </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
