@@ -10,12 +10,24 @@ const todos = [
 ];
 
 function App() {
-  const [todoList, setTodoList] = useState(todos);
+  //state set up
+  const [todoList, setTodoList] = useState([]);
+
+  //handler event
+  function addTodo(todoTitle) {
+    const newTodo = {
+      id: Date.now(),
+      title: todoTitle
+    };
+
+    //updating state using the functional form
+    setTodoList(previous => [...previous, newTodo]);
+  }
 
   return (
     <div>
       <h1>Todo List</h1>
-      <TodoForm />
+      <TodoForm onAddTodo={addTodo} />
       <TodoList todoList={todoList} />
     </div>
   );
